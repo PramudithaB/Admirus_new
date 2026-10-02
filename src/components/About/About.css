@@ -1,0 +1,134 @@
+.about {
+  background: var(--bg-surface);
+}
+
+.about-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: var(--space-4xl);
+}
+
+.about-heading .label {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+/* Why Admirus */
+.why-admirus {
+  margin-bottom: var(--space-4xl);
+  padding: 48px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+}
+
+.why-equation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.equation-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.equation-plus {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.equation-label {
+  padding: 10px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.equation-label:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.equation-result {
+  margin-left: 8px;
+}
+
+.equation-equals {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.equation-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ecosystem Cards */
+.ecosystem-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.ecosystem-card {
+  padding: 28px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.ecosystem-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.ecosystem-card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .why-admirus {
+    padding: 28px;
+  }
+
+  .why-equation {
+    gap: 8px;
+  }
+
+  .equation-label {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,41 @@
+/* ═══════════════════════════════════════════
+   GALLERY SECTION
+   ═══════════════════════════════════════════ */
+
+/**
+ * .gallery-section — the tall scroll runway.
+ * Height is set inline (dynamic based on item count).
+ * position: relative is required for sticky child.
+ */
+.gallery-section {
+  position: relative;
+  /* Width always full */
+  width: 100%;
+  /* No top/bottom padding — the sticky child handles layout */
+}
+
+/**
+ * .gallery-sticky — the actual visible panel.
+ * Sticks to the top of the viewport as the parent scrolls,
+ * giving the 3D scene a fixed-position feel without `position: fixed`
+ * (which would escape the document flow and overlap other sections).
+ */
+.gallery-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Reduced-motion: collapse scroll runway, show simple grid ── */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-section {
+    height: auto !important;
+  }
+
+  .gallery-sticky {
+    position: static;
+    height: auto;
+  }
+}

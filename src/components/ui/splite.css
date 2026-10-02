@@ -1,0 +1,29 @@
+.spline-loader-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Pumpkin orange spinner */
+.spline-loader {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(249, 115, 22, 0.15);
+  border-top-color: #F97316;
+  border-radius: 50%;
+  animation: splineSpinner 0.8s linear infinite;
+}
+
+@keyframes splineSpinner {
+  to { transform: rotate(360deg); }
+}
+
+.spline-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

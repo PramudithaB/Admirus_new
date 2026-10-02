@@ -1,0 +1,42 @@
+export const projects = [
+  {
+    id: 'brand-identity-01',
+    title: 'Brand Identity System',
+    category: 'Branding',
+    year: '2024',
+    description: 'Complete brand identity transformation.',
+    color: '#F97316',
+  },
+  {
+    id: 'social-campaign-01',
+    title: 'Digital Campaign',
+    category: 'Social Media',
+    year: '2024',
+    description: 'Multi-platform social media campaign.',
+    color: '#FACC15',
+  },
+  {
+    id: 'web-platform-01',
+    title: 'E-commerce Platform',
+    category: 'Web Development',
+    year: '2024',
+    description: 'Full-stack web application and digital storefront.',
+    color: '#FB923C',
+  },
+  {
+    id: 'event-branding-01',
+    title: 'Event Branding',
+    category: 'Events',
+    year: '2024',
+    description: 'Complete event branding and production.',
+    color: '#F97316',
+  },
+  {
+    id: 'aerial-production-01',
+    title: 'Aerial Production',
+    category: 'Drone',
+    year: '2024',
+    description: 'Cinematic aerial cinematography.',
+    color: '#FACC15',
+  },
+];

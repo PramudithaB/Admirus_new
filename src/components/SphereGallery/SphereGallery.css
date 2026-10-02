@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════
+   SPHERE GALLERY SECTION
+   ═══════════════════════════════════════════ */
+
+.sg-section {
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* ── Heading block ───────────────────────────────────────────────────────── */
+.sg-heading {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.sg-heading .label {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.sg-sub {
+  max-width: 420px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.text-muted-inline {
+  color: var(--text-muted);
+}
+
+/* ── Sphere wrapper ──────────────────────────────────────────────────────── */
+.sg-sphere-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* Ambient glowing ring behind the sphere */
+.sg-ring {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  border: 1px solid rgba(249, 115, 22, 0.08);
+  box-shadow:
+    0 0 80px  rgba(249, 115, 22, 0.04),
+    0 0 200px rgba(249, 115, 22, 0.03);
+  pointer-events: none;
+  animation: sgPulse 6s ease-in-out infinite;
+}
+
+@keyframes sgPulse {
+  0%,  100% { transform: scale(1);    opacity: 0.6; }
+  50%        { transform: scale(1.04); opacity: 1;   }
+}
+
+/* ── Hint ─────────────────────────────────────────────────────────────────── */
+.sg-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+  opacity: 0;                /* animated in by GSAP */
+}
+
+.sg-hint-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* ── Background radial glow ──────────────────────────────────────────────── */
+.sg-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure container is above glow */
+.sg-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sg-heading {
+    margin-bottom: 40px;
+  }
+
+  .sg-ring {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sg-ring {
+    width: 310px;
+    height: 310px;
+  }
+}

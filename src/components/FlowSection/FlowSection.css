@@ -1,0 +1,88 @@
+.flow-section {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.flow-heading {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.flow-heading .label {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.flow-steps {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.flow-step-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flow-step {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 32px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.flow-step:hover {
+  border-color: var(--step-accent);
+  transform: translateX(8px);
+}
+
+.flow-step-number {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.flow-step-content {
+  flex: 1;
+}
+
+.flow-step-label {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.flow-step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--step-accent);
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.flow-step:hover .flow-step-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 16px var(--step-accent);
+}
+
+.flow-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  color: var(--text-muted);
+  transform-origin: top;
+}

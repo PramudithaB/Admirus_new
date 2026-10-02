@@ -1,0 +1,166 @@
+.core-services {
+  background: var(--bg-primary);
+}
+
+.core-heading {
+  margin-bottom: 64px;
+}
+
+.core-heading .label {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.text-muted-inline {
+  color: var(--text-muted);
+}
+
+.service-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.service-pillar {
+  position: relative;
+  padding: 48px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.service-pillar:hover {
+  border-color: var(--pillar-color);
+}
+
+.pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.pillar-number {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.pillar-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--pillar-color);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.pillar-title {
+  margin-bottom: 20px;
+  line-height: 0.9;
+}
+
+.pillar-title-word {
+  display: block;
+}
+
+.pillar-subtitle {
+  color: var(--pillar-color);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.pillar-description {
+  margin-bottom: 32px;
+  max-width: 400px;
+}
+
+.pillar-capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.capability-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.capability-item:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.capability-item svg {
+  color: var(--pillar-color);
+  flex-shrink: 0;
+}
+
+.pillar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pillar-color);
+  transition: gap var(--duration-fast) var(--ease-out);
+}
+
+.pillar-cta:hover {
+  gap: 12px;
+}
+
+.pillar-glow {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--pillar-color) 0%, transparent 70%);
+  opacity: 0.04;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.service-pillar:hover .pillar-glow {
+  opacity: 0.08;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .service-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .service-pillar {
+    padding: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-pillar {
+    padding: 28px;
+  }
+
+  .pillar-capabilities {
+    grid-template-columns: 1fr;
+  }
+}

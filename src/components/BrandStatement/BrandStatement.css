@@ -1,0 +1,38 @@
+.brand-statement {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.brand-statement::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--accent));
+}
+
+.brand-statement-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brand-text {
+  margin-bottom: 40px;
+}
+
+.brand-word {
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.brand-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+}

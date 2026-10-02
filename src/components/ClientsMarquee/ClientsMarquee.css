@@ -1,0 +1,212 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   CLIENTS MARQUEE (HORIZONTAL AUTO-SCROLLING LOGOS)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.clients-marquee-section {
+  position: relative;
+  padding: 80px 0 60px;
+  background-color: var(--bg-base, #0a0a0a);
+  overflow: hidden;
+}
+
+/* Ambient Radial Glow */
+.clients-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header */
+.clients-marquee-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.clients-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary, #f97316);
+  margin-bottom: 16px;
+}
+
+.clients-title {
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.clients-sub {
+  color: var(--text-muted, #737373);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Track Wrapper */
+.clients-track-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+/* Edge Fade Gradients */
+.clients-fade-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.clients-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-base, #0a0a0a) 15%, transparent 100%);
+}
+
+.clients-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-base, #0a0a0a) 15%, transparent 100%);
+}
+
+/* Marquee Row */
+.marquee-row {
+  display: flex;
+  width: max-content;
+  user-select: none;
+}
+
+/* Row 1 — Moving Left */
+.marquee-row-left {
+  animation: scrollLeft 36s linear infinite;
+}
+
+/* Row 2 — Moving Right */
+.marquee-row-right {
+  animation: scrollRight 38s linear infinite;
+}
+
+/* Hover Pause for Row */
+.marquee-row:hover {
+  animation-play-state: paused;
+}
+
+/* Content Container for Seamless Loop */
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  flex-shrink: 0;
+}
+
+/* Logo Card */
+.client-logo-card {
+  position: relative;
+  width: 190px;
+  height: 95px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 0 14px 35px -8px rgba(249, 115, 22, 0.28),
+              0 0 20px rgba(249, 115, 22, 0.15);
+}
+
+/* Logo Image */
+.client-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(40%) brightness(0.92) contrast(1.05);
+  opacity: 0.85;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.client-logo-card:hover .client-logo-img {
+  filter: grayscale(0%) brightness(1.1) contrast(1.1);
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Keyframes for Continuous Smooth Infinite Scroll */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333333%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-33.333333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ── Responsive Styling ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .clients-marquee-section {
+    padding: 60px 0 45px;
+  }
+
+  .clients-fade-edge {
+    width: 80px;
+  }
+
+  .client-logo-card {
+    width: 150px;
+    height: 80px;
+    padding: 10px 18px;
+    border-radius: 14px;
+  }
+
+  .marquee-row-left {
+    animation-duration: 26s;
+  }
+
+  .marquee-row-right {
+    animation-duration: 28s;
+  }
+}
