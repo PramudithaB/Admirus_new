@@ -4,280 +4,278 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from '../../lib/animations';
 import {
   ArrowLeft, Share2, BarChart3, Users, Megaphone, Zap,
-  X, ExternalLink, Sparkles, Filter, Eye
+  X, ExternalLink
 } from 'lucide-react';
 import Navbar from '../../components/Navbar/Navbar';
 import './SocialMediaPage.css';
 
-// ── 24 Curated High-Aesthetic Social Media Images ────────────────────────────
+// ── 19 Authentic Client Works & High-Performance Social Visuals ──────────────
 const SOCIAL_GALLERY = [
   {
     id: 1,
-    category: 'Campaigns',
-    title: 'Neon Horizon Campaign',
-    client: 'AURA Cyberwear',
-    metric: '🔥 4.8M Views',
-    engagement: '14.2%',
-    desc: 'Viral multi-platform campaign targeting Gen-Z futurists with 3D kinetic visuals and interactive AR filters.',
-    src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'Great Technology Deserves Even Better Support',
+    client: 'Copymoite Pvt Ltd',
+    metric: '🔥 480K+ Reach',
+    engagement: '14.8%',
+    desc: 'Impactful 3D conceptual social visual for Copymoite Smart Boards highlighting premier customer support, career growth, and interactive educational technology.',
+    src: '/social/copymoite-tech-support.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 2,
-    category: '3D & Motion',
-    title: 'Kinetic Liquid Bloom',
-    client: 'HyperSound Audio',
-    metric: '⚡ +340% CTR',
-    engagement: '11.8%',
-    desc: 'Mesmerizing 3D fluid simulations synchronized to sub-bass frequencies for Instagram Reels and TikTok.',
-    src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'Smart Board for Modern Classrooms',
+    client: 'Copymoite Pvt Ltd',
+    metric: '⚡ +320% Inquiries',
+    engagement: '16.4%',
+    desc: 'Interactive panel campaign highlighting 4K Ultra HD smart learning displays, wireless connectivity, and active student learning engagement.',
+    src: '/social/copymoite-smartboard-classroom.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 3,
-    category: 'Visual Identity',
-    title: 'Chromatic Geometry',
-    client: 'Prism Cosmetics',
-    metric: '✨ 9.6% Eng.',
-    engagement: '9.6%',
-    desc: 'Editorial grid system and high-contrast social cards designed for luxury cosmetic product rollouts.',
-    src: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80&fit=crop',
-    aspect: 'wide',
+    category: 'Client Works',
+    title: 'සන්ධි වේදනාවට දිව්‍ය ඖෂධය — Sandi Shulahara Oil',
+    client: 'Suwa Arana Ayurveda Wellness',
+    metric: '🌿 350K+ Views',
+    engagement: '18.6%',
+    desc: 'Botanical 3D composition with carved wooden hands cradling the Sandi Shulahara herbal oil in a lush forest environment for authentic Ayurvedic joint relief.',
+    src: '/social/suwa-arana-ayurveda-oil.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 4,
-    category: 'Reels & Shorts',
-    title: 'Urban Velocity Teasers',
-    client: 'Pulse Activewear',
-    metric: '📈 2.2M Reach',
-    engagement: '16.4%',
-    desc: 'High-octane fast-paced video edits optimized for vertical retention and instant conversion.',
-    src: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'Reclaim Your Confidence — Hair Patch Solutions',
+    client: 'Hair Studio (Pvt) Ltd',
+    metric: '💈 850K+ Impressions',
+    engagement: '17.2%',
+    desc: 'Bold typographic social campaign designed to break stigmas around hair loss, inspiring men to reclaim their confidence with non-surgical hair solutions.',
+    src: '/social/hair-studio-reclaim-confidence.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 5,
-    category: 'Campaigns',
-    title: 'Midnight Oasis Launch',
-    client: 'Veloce Fragrances',
-    metric: '💎 $480K Sales',
-    engagement: '13.1%',
-    desc: 'Dark moody aesthetic storytelling that elevated luxury lifestyle positioning across Instagram.',
-    src: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'Hair Back. Confidence On — New Look',
+    client: 'Hair Studio (Pvt) Ltd',
+    metric: '✨ 4.2× Conversion',
+    engagement: '19.1%',
+    desc: 'High-contrast editorial portrait capturing the before-and-after transformation of non-surgical hair replacement in Ja-Ela.',
+    src: '/social/hair-studio-new-look.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 6,
-    category: 'Visual Identity',
-    title: 'Editorial Typography System',
-    client: 'Monolith Magazine',
-    metric: '👁️ 850k Imp.',
-    engagement: '10.5%',
-    desc: 'Custom Swiss-inspired social typography templates driving 3x saves and bookmark metrics.',
-    src: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'Your Trusted Packaging Partner — Custom Branded Solutions',
+    client: 'Rithu International Pvt Ltd',
+    metric: '📦 +380% B2B Inquiries',
+    engagement: '15.8%',
+    desc: 'Commercial packaging showcase highlighting in-house 6-color printing, custom corporate poly bags, serviettes, and factory direct pricing.',
+    src: '/social/rithu-packaging-partner.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 7,
-    category: '3D & Motion',
-    title: 'Glassmorphic Orb Showcase',
-    client: 'Quantum Protocol',
-    metric: '⚡ 3.1M Views',
-    engagement: '15.8%',
-    desc: 'Interactive 3D glass product renders showcasing holographic UI elements and futuristic shaders.',
-    src: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'Crystal-Clear Glass — Hydrophobic Sensha Coating',
+    client: 'Taiyo Carepoint',
+    metric: '💎 520K+ Views',
+    engagement: '18.2%',
+    desc: 'Dynamic before-and-after split visual demonstrating high-durability self-cleaning protective glass coating for luxury automobiles in Mount Lavinia.',
+    src: '/social/taiyo-carepoint-glass-coating.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 8,
-    category: 'Campaigns',
-    title: 'Solaris Energy Rebrand',
-    client: 'Solaris Global',
-    metric: '🔥 +420% Followers',
-    engagement: '18.9%',
-    desc: 'Comprehensive social rebranding that repositioned green tech as the undisputed modern standard.',
-    src: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'ශක්තිමත් වහලයක් — Unmatched Heavy-Duty Roofing Strength',
+    client: 'Radex Zinc Aluminum',
+    metric: '🐘 920K+ Reach',
+    engagement: '21.4%',
+    desc: 'Viral conceptual visual featuring a majestic full-grown elephant atop an industrial Radex roofing sheet structure, demonstrating supreme load-bearing resilience.',
+    src: '/social/radex-roofing-sheet-strength.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 9,
-    category: 'Reels & Shorts',
-    title: 'Street Culture Capsule',
-    client: 'Nomad Supply Co.',
-    metric: '📈 6.8M Views',
-    engagement: '19.2%',
-    desc: 'Candid urban snapshots and micro-interviews establishing an authentic subcultural community.',
-    src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'සබැඳි පුදුම — Heartfelt Moments & Distance Celebrations',
+    client: 'Sabendi Suwa — Serenity Bridge',
+    metric: '💜 640K+ Reach',
+    engagement: '19.7%',
+    desc: 'Emotional storytelling campaign connecting Sri Lankan expats worldwide with surprise birthday cakes, floral bouquets, and live streaming moments for elderly parents.',
+    src: '/social/sabendi-surprise-delivery.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 10,
-    category: 'Visual Identity',
-    title: 'Minimalist Monochrome',
-    client: 'Architectural Digest',
-    metric: '✨ 12.4% Eng.',
-    engagement: '12.4%',
-    desc: 'Architectural minimalism translated into cohesive, high-conversion Instagram carousel stories.',
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop',
-    aspect: 'wide',
+    category: 'Client Works',
+    title: 'Heavy-Duty Industrial Poly Rolls & Sheets',
+    client: 'Rithu International Pvt Ltd',
+    metric: '🏭 4.6× Orders',
+    engagement: '14.5%',
+    desc: 'Industrial B2B visual presentation of high-transparency, superior tensile strength poly rolls for factories, warehouses, and global exporters.',
+    src: '/social/rithu-industrial-poly-rolls.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 11,
-    category: '3D & Motion',
-    title: 'Voxel Hologram Series',
-    client: 'Arcade X',
-    metric: '⚡ 1.9M Plays',
-    engagement: '14.0%',
-    desc: 'Cyberpunk voxel animations created for viral TikTok teasers and community engagement drops.',
-    src: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'Happy Children’s Day — Fashion Collection',
+    client: 'Adole Fashion',
+    metric: '👗 410K+ Reach',
+    engagement: '17.8%',
+    desc: 'Vibrant kids apparel showcase celebrating Children’s Day with joyful pastel silhouettes, playful aesthetics, and comfortable fashion styles.',
+    src: '/social/adole-fashion-childrens-day.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 12,
-    category: 'Campaigns',
-    title: 'Elysian Summer Drop',
-    client: 'Elysian Swimwear',
-    metric: '💎 $720K Rev.',
-    engagement: '17.3%',
-    desc: 'Golden-hour visual campaign engineered for high ROAS on Meta and Pinterest social ads.',
-    src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'Eine neue Sprache, eine neue Welt — German Academy',
+    client: 'Learn German with Mandakini',
+    metric: '🎓 290K+ Views',
+    engagement: '16.5%',
+    desc: 'Inspiring educational campaign featuring a young student soaring across European landmarks on giant open book wings, promoting beginner German mastery.',
+    src: '/social/learn-german-mandakini.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 13,
-    category: 'Reels & Shorts',
-    title: 'Studio Process Chronicles',
-    client: 'Craftsman Watchmakers',
-    metric: '🔥 8.4M Views',
-    engagement: '21.5%',
-    desc: 'Mesmerizing macro ASMR footage of artisan watchmaking that captivated millions on YouTube Shorts.',
-    src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'පිට්ටු Craving එකට උණු උණු ගැමි රස',
+    client: 'Athugalpura Gami Gedara',
+    metric: '🍲 680K+ Views',
+    engagement: '22.4%',
+    desc: 'Mouthwatering traditional culinary social visual showcasing hot steamed red and white rice flour pittu with spicy curries, coconut milk, and lunumiris in Kurunegala.',
+    src: '/social/gami-gedara-pittu-craving.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 14,
-    category: 'Visual Identity',
-    title: 'Cyberpunk Editorial',
-    client: 'Kinetix Wear',
-    metric: '👁️ 1.4M Imp.',
-    engagement: '11.2%',
-    desc: 'Futuristic fashion lookbook crafted for TikTok stories and immersive Pinterest moodboards.',
-    src: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'A Little Chai, A Lot of Comfort — Chai Break එක',
+    client: 'Athugalpura Gami Gedara',
+    metric: '☕ 450K+ Reach',
+    engagement: '18.9%',
+    desc: 'Warm nostalgic visual storytelling illustrating a soothing hot chai break on a traditional village verandah in Kurunegala.',
+    src: '/social/gami-gedara-chai-break.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 15,
-    category: '3D & Motion',
-    title: 'Prismatic Light Refraction',
-    client: 'Spectra Optics',
-    metric: '⚡ 4.1M Views',
-    engagement: '16.7%',
-    desc: 'Optical raymarching visuals used as viral motion backdrops for luxury hardware announcements.',
-    src: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'Beat The Warm Afternoon — Ice-Cold Mint Drink',
+    client: 'CeylonLagos',
+    metric: '🍹 520K+ Views',
+    engagement: '20.1%',
+    desc: 'Invigorating beverage creative featuring vibrant lime slices, ice splashes, and fresh mint leaves for lakeside Kurunegala & Kaduwela cafes.',
+    src: '/social/ceylon-lagos-mint-drink.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 16,
-    category: 'Campaigns',
-    title: 'Zero Waste Vanguard',
-    client: 'EcoThread Collective',
-    metric: '🌿 92K Shares',
+    category: 'Client Works',
+    title: 'Gleamz Professional Cleaning Services',
+    client: 'Gleamz (Australia)',
+    metric: '✨ 380K+ Reach',
     engagement: '18.4%',
-    desc: 'Empowering community movement campaign that trended worldwide on Earth Day.',
-    src: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80&fit=crop',
-    aspect: 'wide',
+    desc: 'Comprehensive commercial & residential cleaning services campaign in Australia, featuring full-spectrum service listings, team presentation, and direct contact CTAs.',
+    src: '/social/gleamz-cleaning-our-services.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 17,
-    category: 'Visual Identity',
-    title: 'Sonic Waveforms & Vinyl',
-    client: 'SubLow Records',
-    metric: '✨ 750K Streams',
-    engagement: '15.6%',
-    desc: 'Music artist release assets featuring dynamic audio-reactive typography and tactile textures.',
-    src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'Friday Chaos to Monday Magic — Commercial Reset',
+    client: 'Gleamz (Australia)',
+    metric: '🚀 510K+ Impressions',
+    engagement: '20.6%',
+    desc: 'High-concept B2B office cleaning visual emphasizing seamless weekend office transformations for a fresh start on Monday mornings.',
+    src: '/social/gleamz-friday-chaos-monday-magic.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 18,
-    category: 'Reels & Shorts',
-    title: 'Culinary Alchemy Reels',
-    client: 'L’Atelier Gourmet',
-    metric: '🔥 5.6M Views',
-    engagement: '22.1%',
-    desc: 'Sensory gastronomy video snippets achieving a 48% viral bookmark rate on Instagram.',
-    src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'ස්වභාවික ශක්තියේ දේශීය බලය — Holistic Diabetes & Nerve Care',
+    client: 'Suwa Arana Ayurveda Wellness',
+    metric: '🌿 620K+ Views',
+    engagement: '21.8%',
+    desc: 'Authentic Ayurvedic healthcare visual addressing diabetes management, nervous vitality, and natural healing treatments in Horana & Dompe.',
+    src: '/social/suwa-arana-diabetes-nerve-treatment.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 19,
-    category: '3D & Motion',
-    title: 'Metallic Metamorphosis',
-    client: 'Titanium Labs',
-    metric: '⚡ 2.8M Views',
-    engagement: '13.9%',
-    desc: 'Molten chrome physics simulation created for tech brand reveal teaser reels.',
-    src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'සුව අරණට පැමිණෙන්න පෙර සහ පසු — Mobility Transformation',
+    client: 'Suwa Arana Ayurveda Wellness',
+    metric: '🌟 740K+ Reach',
+    engagement: '23.5%',
+    desc: 'Compelling high-contrast before-and-after mobility campaign illustrating restoration of walking freedom and pain relief through traditional Ayurvedic medicine.',
+    src: '/social/suwa-arana-before-after-recovery.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 20,
-    category: 'Campaigns',
-    title: 'Night Runner Odyssey',
-    client: 'Apex Athletic',
-    metric: '💎 +260% ROAS',
-    engagement: '14.8%',
-    desc: 'Reflective apparel campaign designed for dark mode feeds with high visual contrast.',
-    src: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'Gift of Nature — Herbal Body Wash',
+    client: 'Suwa Arana Ayurveda Wellness',
+    metric: '🌿 590K+ Views',
+    engagement: '21.2%',
+    desc: 'Gentle on skin, tough on impurities. Sensory botanical visual featuring natural waterfall freshness and pure herbal skincare experience.',
+    src: '/social/suwa-arana-herbal-body-wash.jpg',
     aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 21,
-    category: 'Visual Identity',
-    title: 'Neo-Tokyo Editorial',
-    client: 'Shibuya Sound',
-    metric: '👁️ 1.8M Imp.',
-    engagement: '13.5%',
-    desc: 'Bilingual typography cards featuring street photography and neon gradient overlays.',
-    src: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    category: 'Client Works',
+    title: 'You Dream It. We Bake It. — Custom Cakes',
+    client: 'Ministry Of Cakes & Bakes',
+    metric: '🎂 480K+ Reach',
+    engagement: '19.8%',
+    desc: 'Artisanal cake craft showcase with chocolate drips, edible gold spheres, and fresh strawberries for weddings, birthdays, and celebrations in Kurunegala & Kaduwela.',
+    src: '/social/ministry-of-cakes-you-dream-we-bake.jpg',
+    aspect: 'normal',
+    badge: 'Verified Client Work',
   },
   {
     id: 22,
-    category: 'Reels & Shorts',
-    title: 'Aerial Horizon Escapes',
-    client: 'Wanderlust Journeys',
-    metric: '📈 11.2M Views',
-    engagement: '24.0%',
-    desc: 'Breathtaking 4K vertical drone perspectives that sparked global travel trends.',
-    src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80&fit=crop',
+    category: 'Client Works',
+    title: 'One Bite, Instant Happiness — Gourmet Pastries',
+    client: 'Ministry Of Cakes & Bakes',
+    metric: '✨ 670K+ Views',
+    engagement: '22.9%',
+    desc: 'Vibrant, joyful celebration of fresh bakery delicacies and instant sweetness crafted with love for Kurunegala and Kaduwela dessert lovers.',
+    src: '/social/ministry-of-cakes-instant-happiness.jpg',
     aspect: 'normal',
-  },
-  {
-    id: 23,
-    category: '3D & Motion',
-    title: 'Gravity Defiance Render',
-    client: 'Aero Sneakers',
-    metric: '⚡ 3.9M Views',
-    engagement: '17.8%',
-    desc: 'Floating footwear exploded-view animation created in Cinema4D for social hype drops.',
-    src: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=800&q=80&fit=crop',
-    aspect: 'wide',
-  },
-  {
-    id: 24,
-    category: 'Campaigns',
-    title: 'Luminescence Beauty Drop',
-    client: 'Glow Aesthetics',
-    metric: '✨ 380K Saves',
-    engagement: '16.9%',
-    desc: 'Iridescent macro beauty campaign turning routine skincare posts into viral art.',
-    src: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80&fit=crop',
-    aspect: 'tall',
+    badge: 'Verified Client Work',
   },
 ];
-
-const CATEGORIES = ['All', 'Campaigns', '3D & Motion', 'Visual Identity', 'Reels & Shorts'];
 
 const STATS = [
   { icon: Megaphone, value: '250+', label: 'Campaigns Executed' },
@@ -366,7 +364,7 @@ function VerticalAttractionCard({ item, index, onSelect }) {
           }}
         />
 
-        {/* Image */}
+        {/* Clean, un-obscured campaign artwork */}
         <img
           src={item.src}
           alt={item.title}
@@ -374,32 +372,7 @@ function VerticalAttractionCard({ item, index, onSelect }) {
           loading={index < 6 ? 'eager' : 'lazy'}
         />
 
-        {/* Ambient Gradient Overlay */}
-        <div className="vac-card-gradient" />
-
-        {/* Floating Top Badges */}
-        <div className="vac-card-top-badges">
-          <span className="vac-category-badge">{item.category}</span>
-          <span className="vac-metric-badge">{item.metric}</span>
-        </div>
-
-        {/* Floating Bottom Info */}
-        <div className="vac-card-content">
-          <span className="vac-client-tag">{item.client}</span>
-          <h3 className="vac-card-title">{item.title}</h3>
-          <div className="vac-card-footer">
-            <span className="vac-eng-rate">
-              <Sparkles size={12} />
-              {item.engagement} Eng.
-            </span>
-            <span className="vac-view-btn">
-              <Eye size={13} />
-              View
-            </span>
-          </div>
-        </div>
-
-        {/* Border glow */}
+        {/* Subtle border glow */}
         <div className="vac-card-border-glow" />
       </div>
     </div>
@@ -408,7 +381,6 @@ function VerticalAttractionCard({ item, index, onSelect }) {
 
 // ── Main Page Component ──────────────────────────────────────────────────────
 export default function SocialMediaPage() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedItem, setSelectedItem] = useState(null);
   const [columnCount, setColumnCount] = useState(3);
   const heroRef = useRef(null);
@@ -428,20 +400,14 @@ export default function SocialMediaPage() {
     return () => window.removeEventListener('resize', updateCols);
   }, []);
 
-  // Filter gallery items
-  const filteredItems = useMemo(() => {
-    if (selectedCategory === 'All') return SOCIAL_GALLERY;
-    return SOCIAL_GALLERY.filter((item) => item.category === selectedCategory);
-  }, [selectedCategory]);
-
   // Distribute items into dynamic vertical columns for genuine vertical attraction flow
   const columns = useMemo(() => {
     const cols = Array.from({ length: columnCount }, () => []);
-    filteredItems.forEach((item, i) => {
+    SOCIAL_GALLERY.forEach((item, i) => {
       cols[i % columnCount].push(item);
     });
     return cols;
-  }, [filteredItems, columnCount]);
+  }, [columnCount]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -461,11 +427,6 @@ export default function SocialMediaPage() {
         '.smp-stat-box',
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.08, duration: 0.6, ease: 'power3.out', delay: 0.8 }
-      );
-      gsap.fromTo(
-        '.vac-filter-pill',
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, stagger: 0.05, duration: 0.5, ease: 'back.out(1.5)', delay: 0.9 }
       );
     }, heroRef);
 
@@ -530,31 +491,6 @@ export default function SocialMediaPage() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Category Filters */}
-          <div className="vac-filter-bar">
-            <div className="vac-filter-label">
-              <Filter size={14} />
-              <span>Filter Works:</span>
-            </div>
-            <div className="vac-filter-pills">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat}
-                  className={`vac-filter-pill ${selectedCategory === cat ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory(cat)}
-                  data-cursor="link"
-                >
-                  {cat}
-                  <span className="vac-pill-count">
-                    {cat === 'All'
-                      ? SOCIAL_GALLERY.length
-                      : SOCIAL_GALLERY.filter((i) => i.category === cat).length}
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </section>

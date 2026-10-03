@@ -67,7 +67,7 @@ function Showcase3DCard({ item, type, index, onSelect }) {
   return (
     <div
       ref={cardRef}
-      className="esp-card"
+      className={`esp-card esp-card--${type}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onSelect(item)}
@@ -92,36 +92,38 @@ function Showcase3DCard({ item, type, index, onSelect }) {
           <img
             src={item.image}
             alt={item.title}
-            className="esp-card-img"
+            className={`esp-card-img ${item.fitMode ? `esp-card-img--${item.fitMode}` : ''}`}
             loading={index < 4 ? 'eager' : 'lazy'}
           />
-          <div className="esp-card-media-gradient" />
+          {type !== 'events' && type !== 'apparel' && <div className="esp-card-media-gradient" />}
 
           {/* Top Category Badge */}
-          <div className="esp-card-badge" style={{ transform: 'translateZ(45px)' }}>
-            <span>{item.category}</span>
-          </div>
+          {type !== 'events' && type !== 'apparel' && (
+            <div className="esp-card-badge" style={{ transform: 'translateZ(45px)' }}>
+              <span>{item.category}</span>
+            </div>
+          )}
 
           {/* Type-Specific Floating Tag */}
-          {item.fabric && (
+          {type !== 'events' && type !== 'apparel' && item.fabric && (
             <div className="esp-card-spec-tag" style={{ transform: 'translateZ(45px)' }}>
               <Shirt size={12} />
               <span>{item.fabric.split(' ')[0]} {item.fabric.split(' ')[1]}</span>
             </div>
           )}
-          {item.altitude && (
+          {type !== 'events' && type !== 'apparel' && item.altitude && (
             <div className="esp-card-spec-tag" style={{ transform: 'translateZ(45px)' }}>
               <Navigation size={12} />
               <span>{item.altitude}</span>
             </div>
           )}
-          {item.scale && (
+          {type !== 'events' && type !== 'apparel' && item.scale && (
             <div className="esp-card-spec-tag" style={{ transform: 'translateZ(45px)' }}>
               <Calendar size={12} />
               <span>{item.scale}</span>
             </div>
           )}
-          {item.discipline && (
+          {type !== 'events' && type !== 'apparel' && item.discipline && (
             <div className="esp-card-spec-tag" style={{ transform: 'translateZ(45px)' }}>
               <Palette size={12} />
               <span>{item.discipline.split('&')[0]}</span>
@@ -129,41 +131,43 @@ function Showcase3DCard({ item, type, index, onSelect }) {
           )}
         </div>
 
-        {/* Card Content Info */}
-        <div className="esp-card-content" style={{ transform: 'translateZ(40px)' }}>
-          <h3 className="esp-card-title">{item.title}</h3>
-          <p className="esp-card-desc body-sm">{item.desc}</p>
+        {/* Card Content Info (Hidden for Events page to display photo only in section) */}
+        {type !== 'events' && (
+          <div className="esp-card-content" style={{ transform: 'translateZ(40px)' }}>
+            <h3 className="esp-card-title">{item.title}</h3>
+            <p className="esp-card-desc body-sm">{item.desc}</p>
 
-          {/* Technical Spec Row */}
-          <div className="esp-card-specs">
-            {item.print && (
-              <span className="esp-spec-pill">
-                <Tag size={11} />
-                {item.print}
+            {/* Technical Spec Row */}
+            <div className="esp-card-specs">
+              {item.print && (
+                <span className="esp-spec-pill">
+                  <Tag size={11} />
+                  {item.print}
+                </span>
+              )}
+              {item.fit && (
+                <span className="esp-spec-pill">{item.fit}</span>
+              )}
+              {item.camera && (
+                <span className="esp-spec-pill">{item.camera}</span>
+              )}
+              {item.venue && (
+                <span className="esp-spec-pill">{item.venue}</span>
+              )}
+              {item.client && (
+                <span className="esp-spec-pill">{item.client}</span>
+              )}
+            </div>
+
+            {/* Action Footer */}
+            <div className="esp-card-footer">
+              <span className="esp-inspect-btn">
+                <span>View Full Design</span>
+                <Eye size={13} />
               </span>
-            )}
-            {item.fit && (
-              <span className="esp-spec-pill">{item.fit}</span>
-            )}
-            {item.camera && (
-              <span className="esp-spec-pill">{item.camera}</span>
-            )}
-            {item.venue && (
-              <span className="esp-spec-pill">{item.venue}</span>
-            )}
-            {item.client && (
-              <span className="esp-spec-pill">{item.client}</span>
-            )}
+            </div>
           </div>
-
-          {/* Action Footer */}
-          <div className="esp-card-footer">
-            <span className="esp-inspect-btn">
-              <span>View Full Design</span>
-              <Eye size={13} />
-            </span>
-          </div>
-        </div>
+        )}
 
         <div className="esp-card-border-glow" />
       </div>
@@ -172,7 +176,7 @@ function Showcase3DCard({ item, type, index, onSelect }) {
 }
 
 // ── Generic Showcase Page Component ──────────────────────────────────────────
-export default function EcosystemShowcasePage({ data, type = 'apparel' }) {
+export default function EcosystemShowcasePage({ data, type = 'apparel', extraContent = null }) {
   const [selectedCat, setSelectedCat] = useState('All');
   const [selectedItem, setSelectedItem] = useState(null);
   const heroRef = useRef(null);
@@ -275,38 +279,42 @@ export default function EcosystemShowcasePage({ data, type = 'apparel' }) {
                   className="esp-hero-cover-img"
                 />
                 <div className="esp-cover-gradient" />
-                <div className="esp-cover-tag">
-                  <CheckCircle2 size={13} />
-                  <span>Verified In-House Module</span>
-                </div>
+                {type !== 'apparel' && (
+                  <div className="esp-cover-tag">
+                    <CheckCircle2 size={13} />
+                    <span>Verified In-House Module</span>
+                  </div>
+                )}
               </div>
             )}
           </div>
 
-          {/* Category Filter Bar */}
-          <div className="esp-filter-bar">
-            <div className="esp-filter-label">
-              <Filter size={14} />
-              <span>Filter Designs & Works:</span>
+          {/* Category Filter Bar (Hidden for Events page) */}
+          {type !== 'events' && (
+            <div className="esp-filter-bar">
+              <div className="esp-filter-label">
+                <Filter size={14} />
+                <span>Filter Designs & Works:</span>
+              </div>
+              <div className="esp-filter-pills">
+                {data.categories.map((cat) => (
+                  <button
+                    key={cat}
+                    className={`esp-filter-pill ${selectedCat === cat ? 'active' : ''}`}
+                    onClick={() => setSelectedCat(cat)}
+                    data-cursor="link"
+                  >
+                    {cat}
+                    <span className="esp-filter-count">
+                      {cat === 'All'
+                        ? data.items.length
+                        : data.items.filter((i) => i.category === cat).length}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="esp-filter-pills">
-              {data.categories.map((cat) => (
-                <button
-                  key={cat}
-                  className={`esp-filter-pill ${selectedCat === cat ? 'active' : ''}`}
-                  onClick={() => setSelectedCat(cat)}
-                  data-cursor="link"
-                >
-                  {cat}
-                  <span className="esp-filter-count">
-                    {cat === 'All'
-                      ? data.items.length
-                      : data.items.filter((i) => i.category === cat).length}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -319,7 +327,7 @@ export default function EcosystemShowcasePage({ data, type = 'apparel' }) {
               <h2 className="heading-md">Explore Designs & Productions</h2>
             </div>
             <p className="body-sm esp-grid-note">
-              Move cursor across cards to experience 3D perspective depth & specular light reflections. Click any card for detailed specs.
+              Move cursor across cards to experience 3D perspective depth & specular light reflections. Click any photo to view full image.
             </p>
           </div>
 
@@ -337,6 +345,9 @@ export default function EcosystemShowcasePage({ data, type = 'apparel' }) {
         </div>
       </section>
 
+      {/* ── Optional Extra Module Content (e.g. World Delivery Map) ── */}
+      {extraContent}
+
       {/* ── Detail Inspection Lightbox Modal ─────────────────────── */}
       <AnimatePresence>
         {selectedItem && (
@@ -346,9 +357,10 @@ export default function EcosystemShowcasePage({ data, type = 'apparel' }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedItem(null)}
+            data-cursor="link"
           >
             <motion.div
-              className="esp-modal-card"
+              className={`esp-modal-card ${type === 'events' ? 'esp-modal-card--image-only' : ''}`}
               initial={{ scale: 0.9, y: 35, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 25, opacity: 0 }}
@@ -364,101 +376,103 @@ export default function EcosystemShowcasePage({ data, type = 'apparel' }) {
                 <X size={20} />
               </button>
 
-              <div className="esp-modal-body">
+              <div className={`esp-modal-body ${type === 'events' ? 'esp-modal-body--image-only' : ''}`}>
                 {/* Media Image */}
-                <div className="esp-modal-media">
+                <div className="esp-modal-media" data-cursor="explore">
                   <img
                     src={selectedItem.image}
                     alt={selectedItem.title}
-                    className="esp-modal-photo"
+                    className={`esp-modal-photo ${selectedItem.fitMode ? `esp-modal-photo--${selectedItem.fitMode}` : ''}`}
                   />
-                  <div className="esp-modal-badge">{selectedItem.category}</div>
+                  {type !== 'events' && type !== 'apparel' && <div className="esp-modal-badge">{selectedItem.category}</div>}
                 </div>
 
-                {/* Details */}
-                <div className="esp-modal-info">
-                  <span className="esp-modal-mod-tag">{data.name}</span>
-                  <h3 className="esp-modal-title">{selectedItem.title}</h3>
-                  <p className="esp-modal-desc body-md">{selectedItem.desc}</p>
+                {/* Details (Hidden for Events page to show popup image only) */}
+                {type !== 'events' && (
+                  <div className="esp-modal-info">
+                    <span className="esp-modal-mod-tag">{data.name}</span>
+                    <h3 className="esp-modal-title">{selectedItem.title}</h3>
+                    <p className="esp-modal-desc body-md">{selectedItem.desc}</p>
 
-                  {/* Specifications Grid */}
-                  <div className="esp-modal-specs-grid">
-                    {selectedItem.fabric && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Fabric Specification</span>
-                        <span className="esp-spec-val">{selectedItem.fabric}</span>
-                      </div>
-                    )}
-                    {selectedItem.print && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Printing Method</span>
-                        <span className="esp-spec-val">{selectedItem.print}</span>
-                      </div>
-                    )}
-                    {selectedItem.fit && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Fit & Silhouette</span>
-                        <span className="esp-spec-val">{selectedItem.fit}</span>
-                      </div>
-                    )}
-                    {selectedItem.colorway && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Colorway Palette</span>
-                        <span className="esp-spec-val">{selectedItem.colorway}</span>
-                      </div>
-                    )}
-                    {selectedItem.altitude && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Flight Altitude</span>
-                        <span className="esp-spec-val">{selectedItem.altitude}</span>
-                      </div>
-                    )}
-                    {selectedItem.camera && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Camera & Drone Rig</span>
-                        <span className="esp-spec-val">{selectedItem.camera}</span>
-                      </div>
-                    )}
-                    {selectedItem.venue && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Venue / Location</span>
-                        <span className="esp-spec-val">{selectedItem.venue}</span>
-                      </div>
-                    )}
-                    {selectedItem.scale && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Event Scale</span>
-                        <span className="esp-spec-val">{selectedItem.scale}</span>
-                      </div>
-                    )}
-                    {selectedItem.client && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Client / Brand</span>
-                        <span className="esp-spec-val">{selectedItem.client}</span>
-                      </div>
-                    )}
-                    {selectedItem.discipline && (
-                      <div className="esp-modal-spec-card">
-                        <span className="esp-spec-title">Design Discipline</span>
-                        <span className="esp-spec-val">{selectedItem.discipline}</span>
-                      </div>
-                    )}
-                  </div>
+                    {/* Specifications Grid */}
+                    <div className="esp-modal-specs-grid">
+                      {selectedItem.fabric && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Fabric Specification</span>
+                          <span className="esp-spec-val">{selectedItem.fabric}</span>
+                        </div>
+                      )}
+                      {selectedItem.print && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Printing Method</span>
+                          <span className="esp-spec-val">{selectedItem.print}</span>
+                        </div>
+                      )}
+                      {selectedItem.fit && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Fit & Silhouette</span>
+                          <span className="esp-spec-val">{selectedItem.fit}</span>
+                        </div>
+                      )}
+                      {selectedItem.colorway && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Colorway Palette</span>
+                          <span className="esp-spec-val">{selectedItem.colorway}</span>
+                        </div>
+                      )}
+                      {selectedItem.altitude && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Flight Altitude</span>
+                          <span className="esp-spec-val">{selectedItem.altitude}</span>
+                        </div>
+                      )}
+                      {selectedItem.camera && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Camera & Drone Rig</span>
+                          <span className="esp-spec-val">{selectedItem.camera}</span>
+                        </div>
+                      )}
+                      {selectedItem.venue && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Venue / Location</span>
+                          <span className="esp-spec-val">{selectedItem.venue}</span>
+                        </div>
+                      )}
+                      {selectedItem.scale && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Event Scale</span>
+                          <span className="esp-spec-val">{selectedItem.scale}</span>
+                        </div>
+                      )}
+                      {selectedItem.client && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Client / Brand</span>
+                          <span className="esp-spec-val">{selectedItem.client}</span>
+                        </div>
+                      )}
+                      {selectedItem.discipline && (
+                        <div className="esp-modal-spec-card">
+                          <span className="esp-spec-title">Design Discipline</span>
+                          <span className="esp-spec-val">{selectedItem.discipline}</span>
+                        </div>
+                      )}
+                    </div>
 
-                  {/* Inquiry CTA */}
-                  <div className="esp-modal-actions">
-                    <Link
-                      to="/#contact"
-                      className="btn btn-primary esp-modal-inquire-btn"
-                      data-cursor="link"
-                      onClick={() => setSelectedItem(null)}
-                    >
-                      <MessageSquare size={16} />
-                      <span>Inquire About Custom Order / Project</span>
-                      <ExternalLink size={14} />
-                    </Link>
+                    {/* Inquiry CTA */}
+                    <div className="esp-modal-actions">
+                      <Link
+                        to="/#contact"
+                        className="btn btn-primary esp-modal-inquire-btn"
+                        data-cursor="link"
+                        onClick={() => setSelectedItem(null)}
+                      >
+                        <MessageSquare size={16} />
+                        <span>Inquire About Custom Order / Project</span>
+                        <ExternalLink size={14} />
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

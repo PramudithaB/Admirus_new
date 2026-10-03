@@ -6,6 +6,7 @@ export const brand = {
   aboutHeadline: 'One OS. Your Complete Brand Legacy.',
   whyChooseHeadline: 'One Partner. Every Platform.',
   phone: '+94 76 533 4413',
+  email: 'info@admirus.lk',
   whatsapp: 'https://wa.me/94765334413',
   website: 'https://admirus.lk',
   description:

@@ -31,7 +31,17 @@ export default function Footer() {
       <div className="container">
         {/* Large wordmark */}
         <div className="footer-wordmark" ref={wordmarkRef}>
-          <span className="footer-wordmark-text" data-cursor="link">ADMIRUS</span>
+          <span
+            className="footer-wordmark-text"
+            data-cursor="link"
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              window.scrollTo(0, 0);
+              window.location.reload();
+            }}
+          >
+            ADMIRUS
+          </span>
         </div>
 
         <div className="footer-content">
@@ -60,6 +70,7 @@ export default function Footer() {
           <div className="footer-col">
             <span className="label" style={{ marginBottom: '16px', display: 'block' }}>Contact</span>
             <div className="footer-links">
+              <a href={`mailto:${brand.email}`} className="footer-link">{brand.email}</a>
               <a href={`tel:${brand.phone.replace(/\s/g, '')}`} className="footer-link">{brand.phone}</a>
               <a href={brand.whatsapp} target="_blank" rel="noopener noreferrer" className="footer-link">
                 WhatsApp <ArrowUpRight size={12} style={{ display: 'inline' }} />

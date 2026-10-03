@@ -141,28 +141,167 @@
   color: var(--text-primary);
 }
 
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.contact-email-link:hover {
+  color: var(--accent-light) !important;
+  transform: translateX(3px);
+}
+
 .form-textarea {
   resize: vertical;
   min-height: 100px;
 }
 
+.form-footer-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
 .form-submit {
   align-self: flex-start;
-  margin-top: 8px;
+}
+
+.form-direct-mail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.form-direct-mail-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .form-note {
   margin-top: 4px;
 }
 
+.form-note strong {
+  color: var(--accent-cyan);
+}
+
+/* ── Success & Activation States ────────────────────────────────────────── */
 .form-success {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: 320px;
   text-align: center;
+  gap: 14px;
+  padding: 24px;
+}
+
+.form-success-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.2);
+}
+
+.form-success-icon {
+  color: #22c55e;
+}
+
+.form-activation-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.2);
+}
+
+.form-activation-icon {
+  color: var(--accent);
+}
+
+.form-success p {
+  max-width: 440px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.form-success p strong,
+.form-success p em {
+  color: var(--text-primary);
+}
+
+.form-success-actions {
+  display: flex;
+  align-items: center;
   gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Error Banner ────────────────────────────────────────────────────────── */
+.form-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: #fca5a5;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.form-error-banner svg {
+  color: #ef4444;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.form-error-mailto-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent-light);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ── Spinner ─────────────────────────────────────────────────────────────── */
+.animate-spin {
+  animation: contactSpin 1s linear infinite;
+}
+
+@keyframes contactSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Responsive */

@@ -1,25 +1,15 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { gsap } from '../../lib/animations';
 import { useReducedMotion } from '../../hooks';
 import { services } from '../../data/services';
-import { ecosystem } from '../../data/brand';
 import {
-  Palette, PenTool, Layers, Video, Navigation, Calendar, Shirt,
-  Share2, Globe, ArrowUpRight, Zap, BarChart3, Users, Megaphone,
-  Search, Smartphone, Layout, Code2,
+  Palette, Zap, BarChart3, Users, Megaphone,
+  Search, Smartphone, Layout, Code2, Globe, ArrowUpRight, Share2
 } from 'lucide-react';
 import './ServicesEcosystem.css';
 
-// ── Icon maps ─────────────────────────────────────────────────────────────────
-const ecosystemIcons = {
-  dmp: Megaphone,
-  events: Calendar,
-  drone: Navigation,
-  sugar: Palette,
-  hicloth: Shirt,
-};
-
+// ── Capability icons ──────────────────────────────────────────────────────────
 const capabilityIcons = {
   'Social Media Strategy': Megaphone,
   'Content Creation': Palette,
@@ -42,7 +32,6 @@ const capabilityIcons = {
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function ServicesEcosystem() {
   const sectionRef = useRef(null);
-  const [activeService, setActiveService] = useState(null);
   const reducedMotion = useReducedMotion();
   const navigate = useNavigate();
 
@@ -60,12 +49,6 @@ export default function ServicesEcosystem() {
       gsap.fromTo('.svc-pillar', { y: 80, opacity: 0 }, {
         y: 0, opacity: 1, stagger: 0.15, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: '.svc-pillars', start: 'top 80%' },
-      });
-
-      // Supporting nodes
-      gsap.fromTo('.ecosystem-node', { scale: 0.6, opacity: 0 }, {
-        scale: 1, opacity: 1, stagger: 0.07, duration: 0.55, ease: 'back.out(1.4)',
-        scrollTrigger: { trigger: '.ecosystem-grid', start: 'top 80%' },
       });
     }, sectionRef);
 
@@ -161,62 +144,6 @@ export default function ServicesEcosystem() {
 
                 {/* Ambient glow */}
                 <div className="svc-pillar-glow" />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* ── The Admirus Ecosystem ───────────────────────────────── */}
-        <div className="ecosystem-divider">
-          <span className="label label-accent">The Admirus Ecosystem</span>
-        </div>
-
-        <div className="ecosystem-grid">
-          {ecosystem.map((item, idx) => {
-            const Icon = ecosystemIcons[item.id] || Palette;
-            const isActive = activeService === item.id;
-            const ecosystemRoutes = {
-              dmp: '/social-media',
-              events: '/the-events-by-admirus',
-              drone: '/drone-mahaththaya',
-              sugar: '/sugar-pixel-studio',
-              hicloth: '/hi-cloth',
-            };
-            const route = ecosystemRoutes[item.id];
-
-            return (
-              <div
-                key={item.id}
-                className={`ecosystem-node ${isActive ? 'active' : ''}`}
-                onMouseEnter={() => setActiveService(item.id)}
-                onMouseLeave={() => setActiveService(null)}
-                onClick={() => {
-                  if (route) navigate(route);
-                }}
-                data-cursor="explore"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    if (route) navigate(route);
-                  }
-                }}
-              >
-                <div className="node-top-row">
-                  <div className="node-icon">
-                    <Icon size={18} />
-                  </div>
-                  <div className="node-action-indicator">
-                    <span className="node-num">0{idx + 1}</span>
-                    <ArrowUpRight size={14} className="node-arrow" />
-                  </div>
-                </div>
-                <h4 className="node-title">{item.name}</h4>
-                <p className="node-description body-sm">{item.description}</p>
-                <div className="node-explore-link">
-                  <span>Explore Showcase</span>
-                  <ArrowUpRight size={12} />
-                </div>
               </div>
             );
           })}

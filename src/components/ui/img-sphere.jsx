@@ -11,27 +11,81 @@ const SPHERE_MATH = {
   },
 };
 
-// ── Default Admirus portfolio images (Unsplash) ───────────────────────────────
+// ── Admirus Real Portfolio & Social Media Images ──────────────────────────────
 const BASE_IMAGES = [
-  { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&fit=crop', alt: 'Creative Direction', title: 'Creative Direction', description: 'Bold creative direction for iconic brands.' },
-  { src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80&fit=crop', alt: 'UI/UX Design',        title: 'UI/UX Design',       description: 'Pixel-perfect interfaces that convert.' },
-  { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80&fit=crop', alt: 'Brand Identity',   title: 'Brand Identity',    description: 'Visual identities built to last.' },
-  { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&fit=crop', alt: 'Web Platform',     title: 'Web Platform',      description: 'High-performance web experiences.' },
-  { src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&q=80&fit=crop', alt: 'Mobile UX',         title: 'Mobile UX',         description: 'Seamless mobile-first design.' },
-  { src: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&q=80&fit=crop', alt: 'Digital Engineering', title: 'Digital Engineering', description: 'Code that scales with ambition.' },
-  { src: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?w=400&q=80&fit=crop', alt: 'Content Studio',    title: 'Content Studio',    description: 'Stories that captivate every scroll.' },
-  { src: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=80&fit=crop', alt: 'Event Production', title: 'Event Production',  description: 'Immersive events that leave impressions.' },
-  { src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&q=80&fit=crop', alt: 'Branding',          title: 'Branding',          description: 'Strategy-driven brand building.' },
-  { src: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&q=80&fit=crop', alt: 'Social Campaign', title: 'Social Campaign',   description: 'Campaigns impossible to ignore.' },
-  { src: 'https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=400&q=80&fit=crop', alt: 'Photography',     title: 'Photography',       description: 'Visual narratives that resonate.' },
-  { src: 'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=400&q=80&fit=crop', alt: 'Aerial Drone',    title: 'Aerial Drone',      description: 'Breathtaking aerial production.' },
+  // Social Media Campaign Photos
+  { src: '/social/suwa-arana-ayurveda-oil.jpg', alt: 'Suwa Arana Ayurveda Oil', title: 'Suwa Arana Ayurveda Oil', description: 'Social Media Campaign & Product Design' },
+  { src: '/social/copymoite-smartboard-classroom.jpg', alt: 'CopyMoite Smartboard', title: 'CopyMoite Smartboard', description: 'EdTech Smartboard Campaign' },
+  { src: '/social/gami-gedara-pittu-craving.jpg', alt: 'Gami Gedara Culinary', title: 'Gami Gedara Culinary', description: 'Restaurant Social Campaign' },
+  { src: '/social/ceylon-lagos-mint-drink.jpg', alt: 'Ceylon Lagos Mint Drink', title: 'Ceylon Lagos Mint Drink', description: 'Beverage Branding & Social Campaign' },
+  { src: '/social/hair-studio-reclaim-confidence.jpg', alt: 'Hair Studio Campaign', title: 'Hair Studio Campaign', description: 'Beauty & Lifestyle Marketing' },
+  { src: '/social/ministry-of-cakes-instant-happiness.jpg', alt: 'Ministry of Cakes', title: 'Ministry of Cakes', description: 'Confectionery Social Design' },
+  { src: '/social/taiyo-carepoint-glass-coating.jpg', alt: 'Taiyo Care Point', title: 'Taiyo Care Point', description: 'Automotive Care Campaign' },
+  { src: '/social/radex-roofing-sheet-strength.jpg', alt: 'Radex Roofing', title: 'Radex Roofing', description: 'Industrial Brand Campaign' },
+  { src: '/social/rithu-packaging-partner.jpg', alt: 'Rithu Packaging', title: 'Rithu Packaging', description: 'Corporate Packaging Campaign' },
+  { src: '/social/sabendi-surprise-delivery.jpg', alt: 'Sabendi Surprise Delivery', title: 'Sabendi Surprise Delivery', description: 'E-commerce Delivery Campaign' },
+  { src: '/social/gleamz-cleaning-our-services.jpg', alt: 'Gleamz Cleaning', title: 'Gleamz Cleaning', description: 'Services Social Media Design' },
+  { src: '/social/adole-fashion-childrens-day.jpg', alt: 'Adole Fashion', title: 'Adole Fashion', description: 'Kids Apparel Social Campaign' },
+  { src: '/social/learn-german-mandakini.jpg', alt: 'Learn German Mandakini', title: 'Learn German Mandakini', description: 'Educational Social Media Campaign' },
+  { src: '/social/copymoite-tech-support.jpg', alt: 'CopyMoite Support', title: 'CopyMoite Support', description: 'Corporate Tech Service Campaign' },
+  { src: '/social/gami-gedara-chai-break.jpg', alt: 'Gami Gedara Chai', title: 'Gami Gedara Chai', description: 'Food & Beverage Marketing' },
+  { src: '/social/hair-studio-new-look.jpg', alt: 'Hair Studio New Look', title: 'Hair Studio New Look', description: 'Salon & Spa Branding' },
+  { src: '/social/ministry-of-cakes-you-dream-we-bake.jpg', alt: 'Ministry of Cakes', title: 'Ministry of Cakes', description: 'Custom Bakery Campaign' },
+  { src: '/social/rithu-industrial-poly-rolls.jpg', alt: 'Rithu Poly Rolls', title: 'Rithu Poly Rolls', description: 'Industrial Products Campaign' },
+  { src: '/social/suwa-arana-before-after-recovery.jpg', alt: 'Suwa Arana Recovery', title: 'Suwa Arana Recovery', description: 'Ayurvedic Medical Campaign' },
+  { src: '/social/suwa-arana-diabetes-nerve-treatment.jpg', alt: 'Suwa Arana Care', title: 'Suwa Arana Care', description: 'Healthcare Brand Campaign' },
+  { src: '/social/suwa-arana-herbal-body-wash.jpg', alt: 'Suwa Arana Body Wash', title: 'Suwa Arana Body Wash', description: 'Personal Care Product Launch' },
+  { src: '/social/gleamz-friday-chaos-monday-magic.jpg', alt: 'Gleamz Magic', title: 'Gleamz Magic', description: 'Cleaning Brand Campaign' },
+
+  // Event & Aerial Coverage Photos
+  { src: '/events/kumbhabhishekam-batticaloa-crew.webp', alt: 'Batticaloa Ceremony Crew', title: 'Batticaloa Temple Ceremony', description: 'Live Event & Drone Aerial Coverage' },
+  { src: '/events/drone-crew-night-lights.webp', alt: 'Night Aerial Crew', title: 'Night Festival Production', description: 'Aerial Drone & Night Lighting Crew' },
+  { src: '/events/visaga-opening-team-lineup.webp', alt: 'VISAGA Opening Lineup', title: 'VISAGA Kotahena Launch', description: 'Showroom Opening Production' },
+  { src: '/events/visaga-opening-crew-selfie.webp', alt: 'VISAGA Media Crew', title: 'VISAGA Presenter Squad', description: 'Live Red Carpet Media Coverage' },
+  { src: '/events/emcc-55th-anniversary-crew.webp', alt: 'EMCC 55th Anniversary', title: 'EMCC 55th Celebration', description: 'Stadium Festival Media Production' },
+  { src: '/events/thettativu-temple-ceremony.webp', alt: 'Thettativu Temple', title: 'Temple Consecration', description: 'Drone Holy Water Consecration' },
+  { src: '/events/visaga-kotahena-opening.webp', alt: 'VISAGA Showroom', title: 'VISAGA Grand Opening', description: 'VIP Retail Launch & Drone Reveal' },
+  { src: '/events/temple-drone-festival.webp', alt: 'Temple Drone Festival', title: 'Temple Aerial Blessing', description: 'Drone Floral Shower Production' },
+  { src: '/events/premium-optix-opening.webp', alt: 'Premium Optix Opening', title: 'Premium Optix Kurunegala', description: 'Flagship Showroom Launch' },
+  { src: '/events/malee-dress-point-opening.webp', alt: 'Malee Dress Point', title: 'Malee Dress Point Opening', description: 'Retail Grand Opening Production' },
+  { src: '/events/suwa-arana-aerial-banner-drop.webp', alt: 'Suwa Arana Banner Drop', title: 'Suwa Arana 4 Launch', description: 'Heavy-Lift Aerial Banner Flight' },
+  { src: '/events/browns-premier-league-drone-team.webp', alt: 'Browns Premier League', title: 'Browns Premier League 2025', description: 'Tournament Live Drone Coverage' },
+  { src: '/events/suwa-arana-drone-launch-crew.webp', alt: 'Suwa Arana Crew', title: 'Suwa Arana 4 Operations', description: 'Drone Flight & Security Command' },
+  { src: '/events/media-event-production-squad.webp', alt: 'Media Production Squad', title: 'Admirus Media Squad', description: 'Live Accredited Event Crew' },
+
+  // Apparel & Feature Showcase Photos
+  { src: '/hicloth/lahiru-creation-black-polo.webp', alt: 'Lahiru Creation Black Polo', title: 'Hi Cloth Black Polo', description: 'Heavyweight Custom Executive Polo' },
+  { src: '/hicloth/lahiru-creation-white-polo.webp', alt: 'Lahiru Creation White Polo', title: 'Hi Cloth White Polo', description: 'Executive White Tipped Polo' },
+  { src: '/hicloth/elle-salon-polo-batch.webp', alt: 'Elle Salon Polo Batch', title: 'Elle Salon Uniforms', description: 'Gold Embroidered Staff Apparel' },
+  { src: '/hicloth/boc-polo-shirt.webp', alt: 'BOC Corporate Polo', title: 'Bank of Ceylon Polo', description: 'Official BOC Heritage Crest Polo' },
+  { src: '/hicloth/cargills-polo-shirts.webp', alt: 'Cargills Crew Polo', title: 'Cargills Staff Apparel', description: 'Active Retail Workwear Polo' },
+  { src: '/hicloth/ahm-auto-electricals-polo.webp', alt: 'AHM Auto Polo', title: 'AHM Motorsport Polo', description: 'Industrial Workshop Uniform' },
+  { src: '/hicloth/ssj-beter-solution-polo.webp', alt: 'SSJ Maritime Polo', title: 'SSJ Solution Polo', description: 'Heather Slate Marine Polo' },
+
+  // Team Leadership & Creative Heads
+  { src: '/team/kasun-wickramasinghe.webp', alt: 'Kasun Wickramasinghe', title: 'Kasun Wickramasinghe', description: 'Founder & Chief Executive Officer' },
+  { src: '/team/dilshan-senanayake.webp', alt: 'Dilshan Senanayake', title: 'Dilshan Senanayake', description: 'Head of Brand Strategy & Identity' },
+  { src: '/team/pramuditha-bandara.webp', alt: 'Pramuditha Bandara', title: 'Pramuditha Bandara', description: 'Lead 3D Web & Interactive Engineer' },
+  { src: '/team/sachini-jayawardena.webp', alt: 'Sachini Jayawardena', title: 'Sachini Jayawardena', description: 'Head of Social Media & Digital Growth' },
+  { src: '/team/tharindu-fernando.webp', alt: 'Tharindu Fernando', title: 'Tharindu Fernando', description: 'Lead Cinematic Video & Visual FX Director' },
+  { src: '/team/nuwan-perera.webp', alt: 'Nuwan Perera', title: 'Nuwan Perera', description: 'Chief Aerial Director (Drone Mahaththaya)' },
+  { src: '/team/dinithi-alwis.webp', alt: 'Dinithi Alwis', title: 'Dinithi Alwis', description: 'Creative Art Director (Sugar Pixel Studio)' },
+  { src: '/team/malith-rodrigo.webp', alt: 'Malith Rodrigo', title: 'Malith Rodrigo', description: 'Head of Experience & Event Production' },
+  { src: '/team/kavinda-silva.webp', alt: 'Kavinda Silva', title: 'Kavinda Silva', description: 'Senior Brand & Operations Lead' },
+  { src: '/team/isuru-bandara.webp', alt: 'Isuru Bandara', title: 'Isuru Bandara', description: 'Creative Content & Media Strategist' },
+
+  // Brand Pillars
+  { src: '/features/admirus.jpeg', alt: 'Admirus Digital', title: 'Admirus Digital', description: 'Social Media & Brand Growth' },
+  { src: '/features/drone.jpeg', alt: 'Drone Mahaththaya', title: 'Drone Mahaththaya', description: 'Cinema 6K Aerial Production' },
+  { src: '/features/eventbyadmirus.jpeg', alt: 'The Events by Admirus', title: 'The Events by Admirus', description: 'Experiential Stage & Spatial Events' },
+  { src: '/features/hicloth.jpeg', alt: 'Hi Cloth Lab', title: 'Hi Cloth Lab', description: 'Streetwear & Corporate Apparel' },
+  { src: '/features/sugerpixel.jpeg', alt: 'Sugar Pixel Studio', title: 'Sugar Pixel Studio', description: '3D Artistry & Brand Identity' },
 ];
 
-// Expand to 60 images for full sphere coverage
+// Expand to 60 images for full 3D sphere coverage
 const DEFAULT_IMAGES = Array.from({ length: 60 }, (_, i) => ({
   id: `img-${i + 1}`,
   ...BASE_IMAGES[i % BASE_IMAGES.length],
-  alt: `${BASE_IMAGES[i % BASE_IMAGES.length].alt} ${Math.floor(i / BASE_IMAGES.length) + 1}`,
 }));
 
 // ── Main component ────────────────────────────────────────────────────────────

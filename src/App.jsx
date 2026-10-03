@@ -26,9 +26,7 @@ const Footer           = lazy(() => import('./components/Footer/Footer'));
 const SocialMediaPage  = lazy(() => import('./pages/SocialMediaPage/SocialMediaPage'));
 const TeamPage         = lazy(() => import('./pages/TeamPage/TeamPage'));
 const HiClothPage      = lazy(() => import('./pages/HiClothPage/HiClothPage'));
-const DronePage        = lazy(() => import('./pages/DronePage/DronePage'));
 const EventsPage       = lazy(() => import('./pages/EventsPage/EventsPage'));
-const SugarPixelPage   = lazy(() => import('./pages/SugarPixelPage/SugarPixelPage'));
 
 import './styles/globals.css';
 
@@ -117,22 +115,6 @@ function App() {
           }
         />
         <Route
-          path="/drone-mahaththaya"
-          element={
-            <Suspense fallback={<SectionFallback />}>
-              <DronePage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/drone"
-          element={
-            <Suspense fallback={<SectionFallback />}>
-              <DronePage />
-            </Suspense>
-          }
-        />
-        <Route
           path="/the-events-by-admirus"
           element={
             <Suspense fallback={<SectionFallback />}>
@@ -145,22 +127,6 @@ function App() {
           element={
             <Suspense fallback={<SectionFallback />}>
               <EventsPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/sugar-pixel-studio"
-          element={
-            <Suspense fallback={<SectionFallback />}>
-              <SugarPixelPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/sugar-pixel"
-          element={
-            <Suspense fallback={<SectionFallback />}>
-              <SugarPixelPage />
             </Suspense>
           }
         />

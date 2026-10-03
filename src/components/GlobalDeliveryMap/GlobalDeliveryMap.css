@@ -1,0 +1,606 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLOBAL DELIVERY MAP — DOTTED WORLD MAP & SRI LANKA AIR TRANSIT ROUTES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.gdm-section {
+  position: relative;
+  padding: 100px 0 80px;
+  background: radial-gradient(circle at 50% 10%, rgba(249, 115, 22, 0.04) 0%, transparent 60%),
+              var(--bg-primary);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* ── Section Header ──────────────────────────────────────────────────────── */
+.gdm-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.gdm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.28);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.gdm-title {
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+.gdm-gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-cyan) 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gdm-sub {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.gdm-sub strong {
+  color: var(--text-primary);
+}
+
+/* Metrics Bar */
+.gdm-metrics-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 16px 28px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(16px);
+}
+
+.gdm-metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.gdm-metric-num {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  letter-spacing: -0.02em;
+}
+
+.gdm-metric-lbl {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gdm-metric-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+/* ── Region Filter Tabs ─────────────────────────────────────────────────── */
+.gdm-region-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.gdm-tabs-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.gdm-tabs-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gdm-tab-btn {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.gdm-tab-btn:hover {
+  color: var(--text-primary);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.gdm-tab-btn.active {
+  background: var(--accent);
+  color: #000000;
+  border-color: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+}
+
+/* ── Dotted World Map Visual Card ────────────────────────────────────────── */
+.gdm-map-card {
+  position: relative;
+  background: #0b0c10;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 32px;
+}
+
+.gdm-card-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.gdm-card-glow-1 {
+  width: 380px;
+  height: 380px;
+  top: -120px;
+  left: 20%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+}
+
+.gdm-card-glow-2 {
+  width: 440px;
+  height: 440px;
+  bottom: -150px;
+  right: 15%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, transparent 70%);
+}
+
+/* Status Bar */
+.gdm-map-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gdm-status-live {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.gdm-live-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: liveBlink 1.8s ease-in-out infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.gdm-origin-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: var(--accent-warm);
+  font-size: 11.5px;
+}
+
+.gdm-origin-pill strong {
+  color: var(--accent-cyan);
+}
+
+.gdm-pin-icon {
+  color: var(--accent);
+}
+
+/* SVG Map Wrapper */
+.gdm-svg-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 16px 12px;
+}
+
+.gdm-world-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Matrix dots */
+.gdm-matrix-dot {
+  fill: #e2e8f0;
+  transition: opacity 0.3s ease;
+}
+
+/* Base curve */
+.gdm-base-curve {
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+/* Flow curve animation */
+.gdm-flow-curve {
+  animation: gdmDashFlow 24s linear infinite;
+  transition: stroke-width 0.3s ease;
+}
+
+.gdm-path-group.active .gdm-flow-curve {
+  animation: gdmDashFlowFast 12s linear infinite;
+}
+
+@keyframes gdmDashFlow {
+  from { stroke-dashoffset: 350; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes gdmDashFlowFast {
+  from { stroke-dashoffset: 350; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Destination Node Ping */
+.gdm-ping-ring {
+  animation: gdmSonarPing 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes gdmSonarPing {
+  0% { r: 3.5; opacity: 0.95; }
+  100% { r: 16; opacity: 0; }
+}
+
+.gdm-dest-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  transition: fill 0.2s ease;
+}
+
+.gdm-dest-node.selected .gdm-dest-label {
+  font-weight: 700;
+  font-size: 10px;
+}
+
+/* Sri Lanka Origin Radar Ripples */
+.gdm-radar-1 {
+  animation: gdmRadarWave 2.8s linear infinite;
+}
+
+.gdm-radar-2 {
+  animation: gdmRadarWave 2.8s linear infinite 0.9s;
+}
+
+.gdm-radar-3 {
+  animation: gdmRadarWave 2.8s linear infinite 1.8s;
+}
+
+@keyframes gdmRadarWave {
+  0% { r: 4; opacity: 1; }
+  100% { r: 28; opacity: 0; }
+}
+
+/* ── Interactive Info Card at Bottom of Map ──────────────────────────────── */
+.gdm-active-detail-card {
+  margin: 0 20px 20px;
+  padding: 20px 24px;
+  background: rgba(18, 18, 24, 0.85);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 2;
+}
+
+.gdm-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gdm-detail-flag-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gdm-flag-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.gdm-dest-country-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.gdm-dest-route-tag {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.gdm-detail-transit-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gdm-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gdm-detail-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+}
+
+.gdm-stat-full {
+  grid-column: 1 / -1;
+}
+
+.gdm-detail-stat-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.gdm-detail-stat-val {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.gdm-color-accent {
+  color: var(--accent-cyan);
+  font-family: var(--font-display);
+}
+
+.gdm-sparkle-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Destination Cards Carousel ──────────────────────────────────────────── */
+.gdm-dest-cards-wrap {
+  margin-bottom: 40px;
+}
+
+.gdm-dest-cards-header {
+  margin-bottom: 16px;
+}
+
+.gdm-dest-cards-header p {
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.gdm-dest-cards-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(249, 115, 22, 0.3) transparent;
+}
+
+.gdm-dest-cards-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.gdm-dest-cards-scroll::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.3);
+  border-radius: 4px;
+}
+
+.gdm-dest-pill-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  text-align: left;
+}
+
+.gdm-dest-pill-card:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+  transform: translateY(-2px);
+  background: var(--bg-elevated);
+}
+
+.gdm-dest-pill-card.active {
+  border-color: var(--accent);
+  background: rgba(249, 115, 22, 0.12);
+  box-shadow: 0 4px 18px rgba(249, 115, 22, 0.2);
+}
+
+.gdm-card-flag {
+  font-size: 20px;
+}
+
+.gdm-card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.gdm-card-city {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.gdm-card-country {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.gdm-card-transit {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 3px 8px;
+  background: rgba(249, 115, 22, 0.1);
+  border-radius: var(--radius-full);
+  margin-left: 6px;
+}
+
+/* ── Logistics Strip ─────────────────────────────────────────────────────── */
+.gdm-logistics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gdm-logistics-card {
+  display: flex;
+  gap: 16px;
+  padding: 22px 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.gdm-logistics-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  background: var(--bg-elevated);
+}
+
+.gdm-log-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.gdm-log-title {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.gdm-logistics-card p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .gdm-logistics-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .gdm-section {
+    padding: 70px 0 60px;
+  }
+
+  .gdm-metrics-bar {
+    gap: 16px;
+    padding: 14px 18px;
+  }
+
+  .gdm-metric-divider {
+    display: none;
+  }
+
+  .gdm-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gdm-active-detail-card {
+    margin: 0 12px 16px;
+    padding: 16px 18px;
+  }
+
+  .gdm-map-status-bar {
+    padding: 12px 16px;
+  }
+}

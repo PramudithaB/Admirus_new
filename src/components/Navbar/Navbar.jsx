@@ -64,6 +64,15 @@ export default function Navbar() {
     }, 250);
   };
 
+  const handleLogoClick = (e) => {
+    setMenuOpen(false);
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+      window.location.reload();
+    }
+  };
+
   return (
     <>
       <nav
@@ -73,7 +82,13 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <div className="navbar-inner">
-          <Link to="/" className="navbar-logo" aria-label="ADMIRUS Home" data-cursor="link">
+          <Link
+            to="/"
+            className="navbar-logo"
+            aria-label="ADMIRUS Home"
+            data-cursor="link"
+            onClick={handleLogoClick}
+          >
             <span className="logo-text">ADMIRUS</span>
           </Link>
 
