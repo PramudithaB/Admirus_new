@@ -8,9 +8,9 @@ import './Hero.css';
 
 export default function Hero() {
   const reducedMotion = useReducedMotion();
-  const leftRef  = useRef(null);
+  const leftRef = useRef(null);
   const rightRef = useRef(null);
-  const tagRef   = useRef(null);
+  const tagRef = useRef(null);
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -108,7 +108,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-sub body-lg">
-            Social media, digital experiences, and web development
+            Social media, Digital experiences, and Web Development
             built to make brands impossible to ignore.
           </p>
 
@@ -118,7 +118,7 @@ export default function Hero() {
               <ArrowUpRight size={16} className="btn-icon" />
             </a>
             <a href="#work" className="btn btn-ghost" data-cursor="link">
-              <span>See Our Work</span>
+              <span>See Our Companies</span>
             </a>
           </div>
 
@@ -126,8 +126,8 @@ export default function Hero() {
           <div className="hero-stats">
             {[
               { value: '200+', label: 'Brands Built' },
-              { value: '5+',   label: 'Years Creative' },
-              { value: '98%',  label: 'Client Rate' },
+              { value: '5+', label: 'Years Creative' },
+              { value: '98%', label: 'Client Rate' },
             ].map((s) => (
               <div key={s.label} className="hero-stat">
                 <span className="hero-stat-value">{s.value}</span>

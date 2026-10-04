@@ -6,9 +6,18 @@
   background: var(--bg-primary);
 }
 
-/* ── Heading ─────────────────────────────────────────────────────────────── */
+/* ── Heading & Top 3D Robo Row ────────────────────────────────────────────── */
+.svc-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
 .svc-heading {
-  margin-bottom: 56px;
+  margin-bottom: 0;
+  flex: 1;
 }
 
 .svc-heading .label {
@@ -20,10 +29,59 @@
   color: var(--text-muted);
 }
 
-/* ── Primary pillars grid ─────────────────────────────────────────────────── */
+/* Standalone Top 3D Robo Character (Pure Floating Robot) */
+.svc-top-robo-wrap {
+  position: relative;
+  width: 440px;
+  height: 320px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  transition: transform 0.4s ease;
+}
+
+.svc-top-robo-wrap:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.svc-top-robo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svc-top-robo-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 1;
+  animation: roboFloat 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 15px 35px rgba(249, 115, 22, 0.35));
+}
+
+@keyframes roboFloat {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* ── Primary 3 pillars grid ────────────────────────────────────────────────── */
 .svc-pillars {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 72px;
 }
@@ -35,6 +93,8 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: border-color var(--duration-base) var(--ease-out);
 }
 
@@ -343,6 +403,18 @@
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .svc-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .svc-top-robo-wrap {
+    width: 100%;
+    height: 240px;
+  }
+}
+
 @media (max-width: 1024px) {
   .svc-pillars {
     grid-template-columns: 1fr;

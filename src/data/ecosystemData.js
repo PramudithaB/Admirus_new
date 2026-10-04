@@ -210,7 +210,7 @@ export const eventsAdmirusData = {
   tagline: 'WE DON’T HOST EVENTS. WE IMMERSE WORLDS.',
   subtitle:
     'Grand religious festivals, flagship showroom launches, drone aerial reveals, and sensory spatial architectures engineered to create unforgettable cultural milestones.',
-  coverImage: '/features/eventbyadmirus.jpeg',
+  coverImage: '/features/events-tactical-robo.png',
   stats: [
     { value: '85+', label: 'Mega Events Produced' },
     { value: '60K+', label: 'Live Attendees' },

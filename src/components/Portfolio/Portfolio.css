@@ -168,28 +168,66 @@
 /* ── Interactive 3D Card ─────────────────────────────────────────────────── */
 .portfolio-3d-card {
   flex-shrink: 0;
-  width: clamp(340px, 30vw, 440px);
-  border-radius: var(--radius-2xl);
+  width: clamp(360px, 32vw, 470px);
+  border-radius: 28px;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Subtle organic float micro-animation for track items */
+.portfolio-3d-card:nth-child(odd) {
+  animation: cardFloatOdd 5s ease-in-out infinite alternate;
+}
+.portfolio-3d-card:nth-child(even) {
+  animation: cardFloatEven 6s ease-in-out infinite alternate;
+}
+
+@keyframes cardFloatOdd {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-6px); }
+}
+
+@keyframes cardFloatEven {
+  0% { transform: translateY(-4px); }
+  100% { transform: translateY(4px); }
 }
 
 .portfolio-card-inner {
   position: relative;
   background: #111116;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
   overflow: hidden;
   transform-style: preserve-3d;
   box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.75);
-  transition: border-color var(--duration-fast), box-shadow 0.25s ease;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+/* Hover Shine Sweep line */
+.portfolio-card-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.portfolio-3d-card:hover .portfolio-card-inner::after {
+  left: 150%;
+  transition: left 0.85s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-3d-card:hover .portfolio-card-inner {
-  border-color: rgba(249, 115, 22, 0.5);
-  box-shadow: 0 25px 60px -15px rgba(249, 115, 22, 0.25),
-              0 0 20px rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 0 25px 65px -15px rgba(249, 115, 22, 0.3),
+              0 0 30px rgba(249, 115, 22, 0.15);
 }
 
 /* Specular Glare */
@@ -210,18 +248,20 @@
   overflow: hidden;
   background: var(--bg-surface);
   transform-style: preserve-3d;
+  border-radius: 26px 26px 0 0;
 }
 
 .portfolio-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
   display: block;
 }
 
 .portfolio-3d-card:hover .portfolio-card-img {
-  transform: scale(1.08);
+  transform: scale(1.1) rotate(-0.5deg);
+  filter: brightness(1.06);
 }
 
 .portfolio-visual-gradient {
@@ -236,17 +276,18 @@
   position: absolute;
   top: 16px;
   left: 16px;
-  padding: 5px 12px;
+  padding: 7px 16px;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
   color: var(--text-primary);
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .portfolio-card-floating-tag {
@@ -255,16 +296,17 @@
   left: 16px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: var(--radius-md);
-  background: rgba(249, 115, 22, 0.2);
-  border: 1px solid rgba(249, 115, 22, 0.4);
-  backdrop-filter: blur(8px);
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 12px;
+  background: rgba(249, 115, 22, 0.25);
+  border: 1px solid rgba(249, 115, 22, 0.5);
+  backdrop-filter: blur(10px);
   color: var(--accent-warm);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-card-floating-tag svg {
@@ -273,54 +315,34 @@
 
 /* 3D Card Body */
 .portfolio-card-body {
-  padding: 22px 24px 24px;
+  padding: 26px 28px 28px;
   transform-style: preserve-3d;
-}
-
-.portfolio-card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.portfolio-card-year {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-}
-
-.portfolio-card-num {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
 }
 
 .portfolio-card-title {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 23px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
-  margin-bottom: 8px;
-  transition: color var(--duration-fast);
+  margin-bottom: 12px;
+  transition: color var(--duration-fast), transform 0.3s ease;
 }
 
 .portfolio-3d-card:hover .portfolio-card-title {
   color: var(--accent-light);
+  transform: translateX(2px);
 }
 
 .portfolio-card-desc {
   color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 22px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-size: 15px;
 }
 
 /* Card Footer */
@@ -328,14 +350,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .portfolio-explore-text {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
   transition: color var(--duration-fast);
@@ -346,8 +368,8 @@
 }
 
 .portfolio-card-icon-btn {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -362,16 +384,16 @@
   background: var(--accent);
   color: #000000;
   border-color: var(--accent);
-  transform: translate(2px, -2px);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+  transform: translate(2px, -2px) scale(1.08);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.45);
 }
 
 /* Neon Glow Effect */
 .portfolio-card-border-glow {
   position: absolute;
   inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.35) 0%, transparent 60%);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.4) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--duration-fast);
   pointer-events: none;

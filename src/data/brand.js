@@ -4,7 +4,7 @@ export const brand = {
   tagline: 'Concept Into Iconic.',
   positioning: 'The First Sri Lankan Integrated Creative Brand OS',
   aboutHeadline: 'One OS. Your Complete Brand Legacy.',
-  whyChooseHeadline: 'One Partner. Every Platform.',
+  whyChooseHeadline: 'One Partner. Complete 360° Branding',
   phone: '+94 76 533 4413',
   email: 'info@admirus.lk',
   whatsapp: 'https://wa.me/94765334413',

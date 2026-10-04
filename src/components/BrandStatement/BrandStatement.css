@@ -1,9 +1,11 @@
 .brand-statement {
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   position: relative;
+  overflow: hidden;
+  padding: 100px 0;
 }
 
 .brand-statement::before {
@@ -15,24 +17,89 @@
   width: 1px;
   height: 80px;
   background: linear-gradient(to bottom, transparent, var(--accent));
+  z-index: 3;
+}
+
+/* Background 3D Robo Cameraman */
+.brand-robo-bg-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.brand-robo-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(249, 115, 22, 0.15) 0%, rgba(250, 204, 21, 0.05) 50%, transparent 75%);
+  filter: blur(50px);
+  z-index: 2;
+}
+
+.brand-robo-track {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.brand-robo-bg-img {
+  max-width: 1100px;
+  width: 90%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  will-change: filter, opacity, transform;
+}
+
+.brand-robo-side-img {
+  position: relative;
+}
+
+.brand-robo-front-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .brand-statement-inner {
-  max-width: 1000px;
+  max-width: 1050px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 3;
 }
 
 .brand-text {
   margin-bottom: 40px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
 }
 
 .brand-word {
   display: inline-block;
+  margin-right: 0.35em;
   transition: opacity 0.3s ease;
 }
 
 .brand-subtitle {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
+  color: var(--text-secondary);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
 }

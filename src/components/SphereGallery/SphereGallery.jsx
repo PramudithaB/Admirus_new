@@ -64,11 +64,11 @@ export default function SphereGallery() {
         <div className="sg-heading">
           <span className="label label-accent">Our Work</span>
           <h2 className="heading-lg">
-            Every project,<br />
-            <span className="text-muted-inline">a universe of craft.</span>
+            Explore Our<br />
+            <span className="text-muted-inline">Branding Universe.</span>
           </h2>
           <p className="body-lg sg-sub">
-            Drag the sphere to explore. Click any image to discover the story behind it.
+            Drag the sphere to rotate. Click any moment to explore the project story.
           </p>
         </div>
 

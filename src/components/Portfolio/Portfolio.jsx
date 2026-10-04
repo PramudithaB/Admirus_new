@@ -130,11 +130,6 @@ function ProjectCard3D({ project, index }) {
 
         {/* 3D Content Container */}
         <div className="portfolio-card-body" style={{ transform: 'translateZ(35px)' }}>
-          <div className="portfolio-card-meta">
-            <span className="portfolio-card-year">{project.year}</span>
-            <span className="portfolio-card-num">CASE 0{index + 1}</span>
-          </div>
-
           <h3 className="portfolio-card-title">{project.title}</h3>
           <p className="portfolio-card-desc body-sm">{project.description}</p>
 

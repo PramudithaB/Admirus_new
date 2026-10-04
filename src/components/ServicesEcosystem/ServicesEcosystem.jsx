@@ -5,7 +5,8 @@ import { useReducedMotion } from '../../hooks';
 import { services } from '../../data/services';
 import {
   Palette, Zap, BarChart3, Users, Megaphone,
-  Search, Smartphone, Layout, Code2, Globe, ArrowUpRight, Share2
+  Search, Smartphone, Layout, Code2, Globe, ArrowUpRight, Share2, Sparkles,
+  Video, Film, Camera, Navigation, Radio
 } from 'lucide-react';
 import './ServicesEcosystem.css';
 
@@ -27,6 +28,14 @@ const capabilityIcons = {
   'SEO Optimization': Search,
   'Performance': Zap,
   'Custom Solutions': Code2,
+  'Cinematography': Camera,
+  'Aerial Drone Production': Navigation,
+  'Video Editing': Film,
+  'Motion Design': Zap,
+  'Commercial Brand Films': Video,
+  'Color Grading': Palette,
+  'Live Event Media': Radio,
+  'VFX & Sound Design': Sparkles,
 };
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -43,6 +52,12 @@ export default function ServicesEcosystem() {
       gsap.fromTo('.svc-heading', { y: 60, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
         scrollTrigger: { trigger: '.svc-heading', start: 'top 85%' },
+      });
+
+      // Top Robo model
+      gsap.fromTo('.svc-top-robo-wrap', { scale: 0.85, opacity: 0 }, {
+        scale: 1, opacity: 1, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: '.svc-top-robo-wrap', start: 'top 85%' },
       });
 
       // Primary pillars
@@ -64,16 +79,28 @@ export default function ServicesEcosystem() {
     >
       <div className="container">
 
-        {/* ── Section heading ────────────────────────────────────── */}
-        <div className="svc-heading">
-          <span className="label label-accent">What We Do</span>
-          <h2 className="heading-lg">
-            Two forces.<br />
-            <span className="text-muted-inline">One creative system.</span>
-          </h2>
+        {/* ── Section Header Row + Top 3D Robo Scene ───────────────────── */}
+        <div className="svc-header-row">
+          <div className="svc-heading">
+            <span className="label label-accent">What We Do In Digital Marketing</span>
+            <h2 className="heading-lg">
+              Three forces.<br />
+              <span className="text-muted-inline">One creative system.</span>
+            </h2>
+          </div>
+
+          {/* Pure Floating 3D Robo Character */}
+          <div className="svc-top-robo-wrap">
+            <div className="svc-top-robo-glow" aria-hidden="true" />
+            <img
+              src="/features/3d-robo-avatar.webp"
+              alt="Admirus 3D AI Robo Intelligence"
+              className="svc-top-robo-img"
+            />
+          </div>
         </div>
 
-        {/* ── Primary pillars (Social + Web) ─────────────────────── */}
+        {/* ── Primary 3 Pillars View (Social + Web + Media & Video) ──── */}
         <div className="svc-pillars">
           {services.primary.map((service) => {
             const isSocial = service.id === 'social-media';
@@ -97,9 +124,13 @@ export default function ServicesEcosystem() {
                 <div className="svc-pillar-header">
                   <span className="svc-pillar-num">{service.number}</span>
                   <div className="svc-pillar-badge">
-                    {isSocial
-                      ? <Share2 size={16} />
-                      : <Globe size={16} />}
+                    {service.id === 'social-media' ? (
+                      <Share2 size={16} />
+                    ) : service.id === 'web-development' ? (
+                      <Globe size={16} />
+                    ) : (
+                      <Video size={16} />
+                    )}
                   </div>
                 </div>
 
@@ -123,7 +154,7 @@ export default function ServicesEcosystem() {
                 {isSocial ? (
                   <Link
                     to="/social-media"
-                    className="svc-pillar-cta svc-pillar-cta-highlight"
+                    className="svc-pillar-cta"
                     data-cursor="explore"
                     onClick={(e) => e.stopPropagation()}
                   >

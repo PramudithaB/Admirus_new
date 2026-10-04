@@ -76,16 +76,15 @@ export default function ClientsMarquee() {
         <div className="clients-marquee-header">
           <div className="clients-badge">
             <ShieldCheck size={14} />
-            <span>Trusted By Leaders</span>
+            <span>Trusted By Branding Partner</span>
           </div>
 
           <h2 className="heading-md clients-title">
-            Powering Sri Lanka’s & Global Visionary Brands.
+            Brands We’ve Brought to Life, On-Screen & On the Ground.
           </h2>
 
           <p className="body-sm clients-sub">
-            Over 150+ organizations trust Admirus as their foundational Brand OS — from disruptive startups to household industry giants.
-          </p>
+            Whether it’s custom merchandise, aerial drone shows, large-scale events, or digital marketing — we craft complete 360° brand experiences that stand out.          </p>
         </div>
       </div>
 

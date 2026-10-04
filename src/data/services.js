@@ -3,7 +3,7 @@ export const services = {
     {
       id: 'social-media',
       number: '01',
-      title: 'Social Media',
+      title: 'Social Media & Performance',
       subtitle: 'Make your brand impossible to ignore.',
       description:
         'Strategy, creative direction, content production, campaign management, and community growth — all designed to turn your brand into a digital force.',
@@ -22,7 +22,7 @@ export const services = {
     {
       id: 'web-development',
       number: '02',
-      title: 'Web Development',
+      title: 'Web Development & Technologies',
       subtitle: 'Turn your ideas into digital experiences.',
       description:
         'From concept to code — responsive websites, web applications, e-commerce platforms, and custom digital solutions built to perform.',
@@ -37,6 +37,25 @@ export const services = {
         'Custom Solutions',
       ],
       color: '#FACC15',
+    },
+    {
+      id: 'media-video',
+      number: '03',
+      title: 'Media & Video Production',
+      subtitle: 'Tell stories worth remembering.',
+      description:
+        'Cinematic commercials, FPV aerial drone cinematography, motion design, and high-impact video reels crafted to captivate audiences.',
+      capabilities: [
+        'Cinematography',
+        'Aerial Drone Production',
+        'Video Editing',
+        'Motion Design',
+        'Commercial Brand Films',
+        'Color Grading',
+        'Live Event Media',
+        'VFX & Sound Design',
+      ],
+      color: '#38BDF8',
     },
   ],
   supporting: [

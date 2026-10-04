@@ -152,7 +152,7 @@ export default function Contact() {
           <div className="contact-cta">
             <h2 className="contact-headline heading-xl">
               <span className="contact-line-wrap"><span>HAVE AN</span></span>
-              <span className="contact-line-wrap"><span>IDEA?</span></span>
+              <span className="contact-line-wrap"><span>CONCEPT?</span></span>
               <span className="contact-line-wrap">
                 <span className="contact-accent">LET'S MAKE</span>
               </span>

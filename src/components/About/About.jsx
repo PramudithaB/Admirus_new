@@ -71,7 +71,7 @@ export default function About() {
             {brand.whyChooseHeadline}
           </h3>
           <div className="why-equation">
-            {['Brand', 'Social', 'Content', 'Web', 'Video', 'Events'].map((item, i) => (
+            {['BRAND', 'DIGITAL', 'MEDIA', 'EVENTS', 'AERIAL', 'APPAREL'].map((item, i) => (
               <div key={item} className="equation-item">
                 {i > 0 && <span className="equation-plus">+</span>}
                 <span className="equation-label">{item}</span>

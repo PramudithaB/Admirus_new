@@ -272,17 +272,17 @@ export default function EcosystemShowcasePage({ data, type = 'apparel', extraCon
 
             {/* Official Module Cover Visual */}
             {data.coverImage && (
-              <div className="esp-hero-cover-wrap">
+              <div className={`esp-hero-cover-wrap ${type === 'events' ? 'esp-hero-robo-wrap' : ''}`}>
                 <img
                   src={data.coverImage}
                   alt={data.name}
-                  className="esp-hero-cover-img"
+                  className={`esp-hero-cover-img ${type === 'events' ? 'esp-hero-robo-img' : ''}`}
                 />
                 <div className="esp-cover-gradient" />
                 {type !== 'apparel' && (
                   <div className="esp-cover-tag">
                     <CheckCircle2 size={13} />
-                    <span>Verified In-House Module</span>
+                    <span>{type === 'events' ? 'AI Tactical Operator' : 'Verified In-House Module'}</span>
                   </div>
                 )}
               </div>
