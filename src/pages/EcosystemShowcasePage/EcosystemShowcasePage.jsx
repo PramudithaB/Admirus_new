@@ -482,22 +482,35 @@ export default function EcosystemShowcasePage({ data, type = 'apparel', extraCon
       {/* ── Conversion Section ───────────────────────────────────── */}
       <section className="esp-cta-section">
         <div className="container">
-          <div className="esp-cta-card">
+          <div className={`esp-cta-card ${type === 'events' ? 'esp-cta-card-events' : ''}`}>
             <div className="esp-cta-glow" />
-            <span className="label label-accent">{data.name} Studio</span>
-            <h2 className="heading-lg esp-cta-title">
-              Ready to bring your vision to reality?
-            </h2>
-            <p className="body-lg esp-cta-desc">
-              Connect directly with the {data.name} production team to get custom quotes, sample swatches, or production dates.
-            </p>
-            <div className="esp-cta-buttons">
-              <Link to="/#contact" className="btn btn-primary" data-cursor="link">
-                <span>Start a Project with {data.name}</span>
-              </Link>
-              <Link to="/#services" className="btn btn-ghost" data-cursor="link">
-                <span>Explore Full Ecosystem</span>
-              </Link>
+
+            {type === 'events' && (
+              <div className="esp-cta-robo-left">
+                <img
+                  src="/features/events-bottom-robo.png"
+                  alt="The Events by Admirus Production Operator Robot"
+                  className="esp-cta-robo-img"
+                />
+              </div>
+            )}
+
+            <div className="esp-cta-content">
+              <span className="label label-accent">{data.name} Studio</span>
+              <h2 className="heading-lg esp-cta-title">
+                Ready to bring your vision to reality?
+              </h2>
+              <p className="body-lg esp-cta-desc">
+                Connect directly with the {data.name} production team to get custom quotes, sample swatches, or production dates.
+              </p>
+              <div className="esp-cta-buttons">
+                <Link to="/#contact" className="btn btn-primary" data-cursor="link">
+                  <span>Start a Project with {data.name}</span>
+                </Link>
+                <Link to="/#services" className="btn btn-ghost" data-cursor="link">
+                  <span>Explore Full Ecosystem</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
