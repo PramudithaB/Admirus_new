@@ -86,6 +86,15 @@ export default function Footer() {
               <a href="#" className="footer-link">LinkedIn</a>
             </div>
           </div>
+
+          {/* 3D Executive CEO Robot */}
+          <div className="footer-robo-col">
+            <img
+              src="/features/footer-executive-robo.png"
+              alt="Admirus Executive CEO Robot"
+              className="footer-robo-img"
+            />
+          </div>
         </div>
 
         <div className="footer-bottom">

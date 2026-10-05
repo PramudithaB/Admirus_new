@@ -68,33 +68,17 @@ export const teamMembers = [
       instagram: 'https://instagram.com',
     },
   },
-  {
-    id: 'seheni-weerakoon',
-    name: 'Janith Sudhakarn',
-    role: 'Assistant Project Manager',
-    department: 'Leadership & Strategy',
-    experience: '2+ Years Experience',
-    bio: 'Dynamic project coordinator ensuring smooth workflow integration, client communication, and timely execution across production teams.',
-    skills: ['Project Coordination', 'Client Liaison', 'Workflow Optimization', 'Quality Control'],
-    quote: 'Every detail matters when engineering memorable brand experiences.',
-    image: '/team/isuru-bandara.webp',
-    featured: true,
-    socials: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-      instagram: 'https://instagram.com',
-    },
-  },
+
   {
     id: 'seheni-weerakoon',
     name: 'Seheni Weerakoon',
     role: 'Assistant Project Manager',
     department: 'Leadership & Strategy',
-    experience: '2+ Years Experience',
+    experience: '3+ Years Experience',
     bio: 'Dynamic project coordinator ensuring smooth workflow integration, client communication, and timely execution across production teams.',
     skills: ['Project Coordination', 'Client Liaison', 'Workflow Optimization', 'Quality Control'],
     quote: 'Every detail matters when engineering memorable brand experiences.',
-    image: '/team/sachini-jayawardena.webp',
+    image: '/team/female-team-member.webp',
     featured: true,
     socials: {
       linkedin: 'https://linkedin.com',
@@ -188,6 +172,7 @@ export const teamMembers = [
       instagram: 'https://instagram.com',
     },
   },
+
 ];
 
 export const teamDepartments = [

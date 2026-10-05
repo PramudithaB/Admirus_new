@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { navigation } from '../../data/navigation';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -21,6 +21,17 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close menu on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [menuOpen]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -145,6 +156,19 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Navigation menu"
       >
+        <div className="menu-overlay-header">
+          <span className="menu-header-logo">ADMIRUS</span>
+          <button
+            className="menu-close-btn"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+            data-cursor="link"
+          >
+            <span>Close</span>
+            <X size={20} />
+          </button>
+        </div>
+
         <div className="menu-overlay-inner">
           <div className="menu-items">
             {navigation.map((item, i) => (

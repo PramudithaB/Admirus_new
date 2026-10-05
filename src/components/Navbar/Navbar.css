@@ -136,17 +136,60 @@
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: var(--bg-primary);
-  z-index: var(--z-nav);
+  background: var(--bg-primary, #080808);
+  z-index: 99999;
   clip-path: inset(0 0 100% 0);
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding-bottom: 40px;
   pointer-events: none;
 }
 
 .menu-overlay.active {
   pointer-events: auto;
+}
+
+.menu-overlay-header {
+  width: 100%;
+  max-width: var(--container-max);
+  padding: 24px var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-header-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.menu-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #ffaa5b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.menu-close-btn:hover {
+  background: var(--accent, #f97316);
+  color: #000000;
+  border-color: var(--accent, #f97316);
+  transform: scale(1.04);
 }
 
 .menu-overlay-inner {
@@ -155,7 +198,7 @@
   padding: 0 var(--container-padding);
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
 }
 
 .menu-items {

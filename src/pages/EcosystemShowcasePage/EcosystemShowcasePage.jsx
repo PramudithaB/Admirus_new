@@ -131,8 +131,8 @@ function Showcase3DCard({ item, type, index, onSelect }) {
           )}
         </div>
 
-        {/* Card Content Info (Hidden for Events page to display photo only in section) */}
-        {type !== 'events' && (
+        {/* Card Content Info (Hidden for Events and Apparel page to display photo only) */}
+        {type !== 'events' && type !== 'apparel' && (
           <div className="esp-card-content" style={{ transform: 'translateZ(40px)' }}>
             <h3 className="esp-card-title">{item.title}</h3>
             <p className="esp-card-desc body-sm">{item.desc}</p>
@@ -360,7 +360,7 @@ export default function EcosystemShowcasePage({ data, type = 'apparel', extraCon
             data-cursor="link"
           >
             <motion.div
-              className={`esp-modal-card ${type === 'events' ? 'esp-modal-card--image-only' : ''}`}
+              className={`esp-modal-card ${type === 'events' || type === 'apparel' ? 'esp-modal-card--image-only' : ''}`}
               initial={{ scale: 0.9, y: 35, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 25, opacity: 0 }}
@@ -376,7 +376,7 @@ export default function EcosystemShowcasePage({ data, type = 'apparel', extraCon
                 <X size={20} />
               </button>
 
-              <div className={`esp-modal-body ${type === 'events' ? 'esp-modal-body--image-only' : ''}`}>
+              <div className={`esp-modal-body ${type === 'events' || type === 'apparel' ? 'esp-modal-body--image-only' : ''}`}>
                 {/* Media Image */}
                 <div className="esp-modal-media" data-cursor="explore">
                   <img
@@ -387,8 +387,8 @@ export default function EcosystemShowcasePage({ data, type = 'apparel', extraCon
                   {type !== 'events' && type !== 'apparel' && <div className="esp-modal-badge">{selectedItem.category}</div>}
                 </div>
 
-                {/* Details (Hidden for Events page to show popup image only) */}
-                {type !== 'events' && (
+                {/* Details (Hidden for Events & Apparel page to show popup image only) */}
+                {type !== 'events' && type !== 'apparel' && (
                   <div className="esp-modal-info">
                     <span className="esp-modal-mod-tag">{data.name}</span>
                     <h3 className="esp-modal-title">{selectedItem.title}</h3>
